@@ -32,7 +32,6 @@ public class LessonCs3 {
         return Arrays.equals(strNum, reversedArray);
     }
 
-
     private static void task21() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите координаты точки А (x): ");
