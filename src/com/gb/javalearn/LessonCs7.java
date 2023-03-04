@@ -15,7 +15,7 @@ public class LessonCs7 {
     }
 
     private static void task47() {
-        int col = 5;
+        int col = 3;
         int raw = 4;
         double[][] array = generate2DemArray(col, raw);
 
@@ -25,8 +25,8 @@ public class LessonCs7 {
     private static double[][] generate2DemArray(int col, int raw) {
         double[][] array = new double[col][raw];
         Random rand = new Random();
-        for (int colIndex = 0; colIndex< col; colIndex++) {
-            for (int rawIndex = 0; rawIndex< raw; rawIndex++) {
+        for (int colIndex = 0; colIndex<array.length; colIndex++) {
+            for (int rawIndex = 0; rawIndex<array[colIndex].length; rawIndex++) {
                 array[colIndex][rawIndex] = rand.nextInt(9) - 5 + (double) rand.nextInt(9) / 10;
             }
         }
