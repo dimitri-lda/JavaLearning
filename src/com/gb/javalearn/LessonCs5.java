@@ -6,6 +6,10 @@ import java.util.Random;
  Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
  Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
  Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+ Task 34: Define an array filled with random positive three-digit numbers. Write a program to show the number of even numbers in an array.
+ Task 36: Define a one-dimensional array filled with random numbers. Find the sum of elements in odd positions.
+ Task 38: Specify an array of real numbers. Find the difference between the maximum and minimum elements of the array.
  */
 public class LessonCs5 {
     public static void main(String[] args) {
