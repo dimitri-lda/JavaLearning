@@ -19,7 +19,7 @@ public class LessonCs8 {
     public static void main(String[] args) {
         task54();
         task56();
-//        task58();
+        task58();
 //        task60();
 //        task62();
     }
@@ -36,6 +36,7 @@ public class LessonCs8 {
     private static Integer[][] generate2DemArrayOfIntegerObjects(int col, int raw) {
         Integer[][] array = new Integer[raw][col];
         Random rand = new Random();
+        rand.nextInt(9);
         for (int rawIndex = 0; rawIndex<array.length; rawIndex++) {
             for (int colIndex = 0; colIndex<array[rawIndex].length; colIndex++) {
                 array[rawIndex][colIndex] = rand.nextInt(9);
@@ -112,5 +113,46 @@ public class LessonCs8 {
             System.out.printf("%d ", i);
         }
         System.out.print("\r\n");
+    }
+
+    private static void task58() {
+        int[][] matrix1 = generateMatrix();
+        System.out.println("Матрица 1:");
+        printMatrix(matrix1);
+
+        int[][] matrix2 = generateMatrix();
+        System.out.println("Матрица 2:");
+        printMatrix(matrix2);
+
+        System.out.println("Призведение матриц 1 и 2:");
+        printMatrix(getMatrixMultiplication(matrix1, matrix2));
+    }
+
+    private static int[][] generateMatrix() {
+        Random rand = new Random();
+        return new int[][]{{rand.nextInt(9), rand.nextInt(9)}, {rand.nextInt(9), rand.nextInt(9)}};
+    }
+
+    private static int[][] getMatrixMultiplication(int[][] matrix1, int[][] matrix2) {
+        int[][] resultMatrix = new int[matrix1.length][matrix2[0].length];
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix2[0].length; j++) {
+                int sum = 0;
+                for (int k = 0; k < matrix1[0].length; k++) {
+                    sum += matrix1[i][k] * matrix2[k][j];
+                }
+                resultMatrix[i][j] = sum;
+            }
+        }
+        return resultMatrix;
+    }
+
+    private static void printMatrix(int[][] matrix) {
+        for (int[] rows : matrix) {
+            for (int elem : rows) {
+                System.out.print(elem + " ");
+            }
+            System.out.println();
+        }
     }
 }
