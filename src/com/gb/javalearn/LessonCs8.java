@@ -13,15 +13,15 @@ import java.util.*;
  Task 56: Define a rectangular two-dimensional array. Write a program that will find the skin with the least number of elements.
  Task 58: Define two matrices. Write a program that will find two product matrices.
  Task 60: Form a three-dimensional array of non-repeating two-digit numbers. Write a program that will print an array line by line, adding the indexes of each element.
- Task 62: Write a program that fills a 4 by 4 array in a spiral.
+ Task 62: Write a program that fills a 4 by 4 array in a helix.
  */
 public class LessonCs8 {
     public static void main(String[] args) {
         task54();
         task56();
         task58();
-//        task60();
-//        task62();
+        task60();
+        task62();
     }
 
     private static void task54() {
@@ -37,9 +37,9 @@ public class LessonCs8 {
         Integer[][] array = new Integer[raw][col];
         Random rand = new Random();
         rand.nextInt(9);
-        for (int rawIndex = 0; rawIndex<array.length; rawIndex++) {
-            for (int colIndex = 0; colIndex<array[rawIndex].length; colIndex++) {
-                array[rawIndex][colIndex] = rand.nextInt(9);
+        for (int i = 0; i<array.length; i++) {
+            for (int j = 0; j<array[i].length; j++) {
+                array[i][j] = rand.nextInt(9);
             }
         }
         return array;
@@ -71,16 +71,17 @@ public class LessonCs8 {
         int minSumRowIndex = findRawWithMinElemSum(array);
         System.out.println("Индекс строки с минимальной суммой элементов: " + minSumRowIndex);
         printArray(array[minSumRowIndex]);
+        System.out.println();
     }
 
     private static int findRawWithMinElemSum(int[][] array) {
         int sum = Arrays.stream(array[0]).sum();
         int resultIndex = 0;
-        for (int rawIndex = 0; rawIndex<array.length; rawIndex++) {
-            int currentSum = Arrays.stream(array[rawIndex]).sum();
+        for (int i = 0; i<array.length; i++) {
+            int currentSum = Arrays.stream(array[i]).sum();
             if (currentSum < sum) {
                 sum = currentSum;
-                resultIndex = rawIndex;
+                resultIndex = i;
             }
         }
         return resultIndex;
@@ -89,9 +90,9 @@ public class LessonCs8 {
     private static int[][] generate2DemArrayOfInts(int col, int raw) {
         int[][] array = new int[raw][col];
         Random rand = new Random();
-        for (int rawIndex = 0; rawIndex<array.length; rawIndex++) {
-            for (int colIndex = 0; colIndex<array[rawIndex].length; colIndex++) {
-                array[rawIndex][colIndex] = rand.nextInt(9);
+        for (int i = 0; i<array.length; i++) {
+            for (int j = 0; j<array[i].length; j++) {
+                array[i][j] = rand.nextInt(9);
             }
         }
         return array;
@@ -126,6 +127,7 @@ public class LessonCs8 {
 
         System.out.println("Призведение матриц 1 и 2:");
         printMatrix(getMatrixMultiplication(matrix1, matrix2));
+        System.out.println();
     }
 
     private static int[][] generateMatrix() {
@@ -154,5 +156,80 @@ public class LessonCs8 {
             }
             System.out.println();
         }
+    }
+
+    private static void task60() {
+        int[][][] array = generate3DemArrayOfInts(2);
+        print3DemArrayOfInts(array);
+        System.out.println();
+    }
+
+    private static int[][][] generate3DemArrayOfInts(int arraySize) {
+        Random rand = new Random();
+        int[][][] array = new int[arraySize][arraySize][arraySize];
+        ArrayList<Integer> tempArrayList = new ArrayList<>();
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                for (int k = 0; k < array[i][j].length; k++) {
+                    int number = rand.nextInt(99);
+                    while (tempArrayList.contains(number)) {
+                        number = rand.nextInt(99);
+                    }
+                    array[i][j][k] = number;
+                    tempArrayList.add(number);
+                }
+            }
+        }
+
+        return array;
+    }
+
+    private static void print3DemArrayOfInts(int[][][] arr) {
+        System.out.println("Трехмерный массив: ");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                for (int k = 0; k < arr[i][j].length; k++) {
+                    System.out.print(arr[i][j][k] + "(" + i + "." + j + "." + k + ") ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    private static void task62() {
+        int[][] array = fillHelixArray(4);
+        System.out.println("Массив заполненый в виде спирали");
+        print2DemArrayOfInts(array);
+    }
+
+    public static int[][] fillHelixArray(int arraySize) {
+        int[][] array = new int[arraySize][arraySize];
+        int number = 1;
+        int row = 0;
+        int column = 0;
+
+        while (number <= arraySize * arraySize) {
+            for (int i = column; i < arraySize - column; i++) {
+                array[row][i] = number;
+                number++;
+            }
+            for (int i = row + 1; i < arraySize - row; i++) {
+                array[i][arraySize - column - 1] = number;
+                number++;
+            }
+            for (int i = arraySize - column - 2; i >= column; i--) {
+                array[arraySize - row - 1][i] = number;
+                number++;
+            }
+            for (int i = arraySize - row - 2; i > row; i--) {
+                array[i][column] = number;
+                number++;
+            }
+            row++;
+            column++;
+        }
+
+        return array;
     }
 }
