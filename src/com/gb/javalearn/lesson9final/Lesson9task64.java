@@ -3,8 +3,8 @@ package com.gb.javalearn.lesson9final;
 import java.util.Scanner;
 
 /*
- Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
- Task 66: Set the values of M and N. Write a program that will find the sum of positive integers between M and N.
+ Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+ Task 64: Set the value to N. Write a program that prints all natural numbers between N and 1. Execute using recursion.
  */
 public class Lesson9task64 {
     public static void main(String[] args) {

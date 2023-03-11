@@ -1,6 +1,7 @@
 using System;
 
-class Lesson9_task66 {
+class Lesson9_task68
+{
   public static void Main (string[] args) {
     Console.Write("Введите число m: ");
     int m = int.Parse(Console.ReadLine());
@@ -10,7 +11,8 @@ class Lesson9_task66 {
     Console.WriteLine($"A({m},{n}) = {result}");
   }
 
-  public static int Ackermann(int m, int n) {
+  public static int Ackermann(int m, int n)
+  {
     int result = 0;
     if (m == 0)
       result = n + 1;
