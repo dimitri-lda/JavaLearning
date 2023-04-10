@@ -1,11 +1,11 @@
 # Readme file for GeekBrains Task 1
 
-> **Заметка**: Файл readme.md спользуется для инструкций по установке и запуску проекта.
-### Базовые консольные Git команды 
-Если у нас в значении есть пробелы, мы используем двойные ковычки `" "`
+> **Заметка**: The README.md file is used for instructions on how to install and run the project.
+### Basic Git console commands 
+If we have spaces in the value, we use double quotes `" "`
 ```console
 git config --global user.name "Dzmitry Lukashuk"
-git config --global user.email dimitri.lukashuk@gmail.com
+git config --global user.email ***@gmail.com
 
 git init
 git add <filename>
@@ -15,6 +15,6 @@ git push origin <branch_name>
 git pull
 ```
 
-Мой [GitHub](https://github.com/dimitri-lda).
+My [GitHub](https://github.com/dimitri-lda).
 
 ![Image text](./images/image1.jpg)
