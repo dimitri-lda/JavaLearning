@@ -40,11 +40,11 @@ public class Lesson5sem {
         for (var male: Male.values()) {
             maleNames.put(new Random().nextInt(10), male.toString());
         }
-        for (var it: maleNames.entrySet()) System.out.println(it.getKey() + ": " + it.getValue());
+        System.out.println(maleNames);
         for (var female: Female.values()) {
             femaleNames.put(new Random().nextInt(10), female.toString());
         }
-        for (var it: femaleNames.entrySet()) System.out.println(it.getKey() + ": " + it.getValue());
+        System.out.println(femaleNames);
         for (var maleName: maleNames.entrySet()) {
             if (femaleNames.containsKey(maleName.getKey())) {
                 System.out.println(maleName.getKey() + ": " + maleName.getValue() + " " + femaleNames.get(maleName.getKey()));
@@ -57,7 +57,7 @@ public class Lesson5sem {
         for (int i = 0; i < 10; i++) {
             mp.put(i, new Random().nextInt(0, 100));
         }
-        for (var it: mp.entrySet()) System.out.println(it.getKey() + ": " + it.getValue());
+        System.out.println(mp);
 
         for (int key: mp.keySet()) {
             if (mp.get(key) % 3 == 0) {
