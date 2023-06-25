@@ -17,9 +17,9 @@ public class Lesson5 {
         HashMap<String, ArrayList<Integer>> phonebook = new HashMap<>();
         System.out.println(message);
         while (!scanner.hasNextInt() || scanner.nextInt() != 0) {
-            String[] user = scanner.nextLine().split(" ");
-            String name = user[0];
-            Integer phone = Integer.parseInt(user[1]);
+            String[] contact = scanner.nextLine().split(" ");
+            String name = contact[0];
+            Integer phone = Integer.parseInt(contact[1]);
 
             if (phonebook.containsKey(name)) {
                 phonebook.get(name).add(phone);
