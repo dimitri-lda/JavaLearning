@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Lesson5 {
     public static void main(String[] args) {
-        String message = "Введите Имя и номер телефона пользователя через пробел. " +
+        String message = "Введите Имя и номер телефона контакта через пробел. " +
                 "Для выхода введите 0: ";
         Scanner scanner = new Scanner(System.in);
         HashMap<String, ArrayList<Integer>> phonebook = new HashMap<>();
@@ -35,7 +35,7 @@ public class Lesson5 {
         ArrayList<String> names = new ArrayList<>(phonebook.keySet());
         names.sort((o1, o2) -> phonebook.get(o2).size() - phonebook.get(o1).size());
 
-        System.out.println("\nСписок пользователей отсортированных по количеству телефонов:");
+        System.out.println("\nСписок контактов отсортированных по количеству телефонов:");
         for (String nameIndex : names) {
             System.out.println(nameIndex + ": " + phonebook.get(nameIndex));
         }
