@@ -11,13 +11,13 @@ public class FinalTask {
         try {
             inputData = readUserData();
             parseUserData();
-        } catch (RuntimeException|IOException e) {
+        } catch (RuntimeException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
 
     private static void parseUserData() throws RuntimeException, IOException {
-        String birthDate = parseBirthDate();;
+        String birthDate = parseBirthDate();
         long phoneNumber = parsePhoneNumber();
         char gender = parseGender();
         String lastName = parseName();
@@ -27,9 +27,12 @@ public class FinalTask {
         String dataToWrite = lastName + ' ' + firstName + ' ' + middleName + ' ' + birthDate + ' ' +
                 phoneNumber + ' ' + gender + "\n";
 
-        FileWriter fileWriter = new FileWriter("data/" + lastName + ".txt", true);
-        fileWriter.write(dataToWrite);
-        fileWriter.close();
+        String fileName = "data/" + lastName + ".txt";
+        try (FileWriter fileWriter = new FileWriter(fileName, true)) {
+            fileWriter.write(dataToWrite);
+        } catch (IOException e) {
+            throw new IOException("Ошибка записи в файл " + fileName);
+        }
 
         System.out.println("Данные успешно записаны в файл");
     }
