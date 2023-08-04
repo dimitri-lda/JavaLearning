@@ -26,7 +26,7 @@ public class Task3 {
 //        System.out.println(a + b);
 //    }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         try {
             int a = 90;
             int b = 3;
