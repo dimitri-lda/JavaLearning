@@ -56,12 +56,12 @@ public class Main {
             Toy toy = toyQueue.poll();
             String lineText = "Toy ID: " + toy.getId() + " Name: " + toy.getName() + "\n";
 
-            try (FileWriter writer = new FileWriter(fileName)) {
+            try (FileWriter writer = new FileWriter(fileName, true)) {
                 writer.write(lineText);
             } catch (IOException e) {
                 throw new RuntimeException("An error occurred. " + e.getMessage());
             }
-            System.out.println(lineText);
+            System.out.print(lineText);
         }
     }
 
