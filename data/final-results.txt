@@ -1,0 +1,10 @@
+Toy ID: 3 Name: кукла
+Toy ID: 3 Name: кукла
+Toy ID: 3 Name: кукла
+Toy ID: 3 Name: кукла
+Toy ID: 3 Name: кукла
+Toy ID: 3 Name: кукла
+Toy ID: 2 Name: робот
+Toy ID: 1 Name: конструктор
+Toy ID: 2 Name: робот
+Toy ID: 2 Name: робот
